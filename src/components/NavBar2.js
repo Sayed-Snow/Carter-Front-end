@@ -15,15 +15,15 @@ const NavBar2=()=> {
        <div className={click ? "main-container" : ""}  onClick={()=>Close()} />
         <nav className="navbar" onClick={e => e.stopPropagation()}>
           <div className="nav-container">
-            <NavLink exact to="/" className="nav-logo">
+            <NavLink exact={"true"} to="/" className="nav-logo">
               Awsome <br/> Movies
             </NavLink>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
                 <NavLink
-                  exact = {+true}
+                  exact = {"true"}
                   to="/"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
                 >
@@ -34,9 +34,9 @@ const NavBar2=()=> {
               </li>
               <li className="nav-item">
                 <NavLink
-                  exact = {+true}
+                  exact = {"true"}
                   to="/popular"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
                 >
@@ -45,9 +45,9 @@ const NavBar2=()=> {
               </li>
               <li className="nav-item">
                 <NavLink
-                  exact = {+true}
+                  exact = {"true"}
                   to="/contact"
-                  activeClassName="active"
+                  activeclassname="active"
                   className="nav-links"
                  onClick={click ? handleClick : null}
                 >
