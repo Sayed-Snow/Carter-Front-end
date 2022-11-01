@@ -8,6 +8,7 @@ import {
     Routes,  
     Route,  
 }   from 'react-router-dom'; 
+import Moviepage from "../pages/Moviepage";
 
 const Browers = () =>{
     return(
@@ -19,7 +20,7 @@ const Browers = () =>{
           <Routes>
             <Route exact path="/" element={<HomePage/>} />
             <Route path="/popular" element={<Popularpage/>} />
-            <Route path="/contact" element={<Contactpage/>} />
+            <Route path="/contact" element={<Moviepage/>} />
           </Routes>
         </div>
       </Router>

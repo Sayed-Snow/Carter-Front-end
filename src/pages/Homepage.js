@@ -5,7 +5,7 @@ import './Button.css'
 class HomePage extends React.Component {
     render() {
         return (
-            <div>
+            <div style={{textalign: 'center'}}>
                 <h1>Welcome to Awesome Movies</h1>
                 <button className="button">Browse movies</button>
 
