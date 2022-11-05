@@ -8,7 +8,7 @@
     background-color: #04AA6D;
     border: none;
     border-radius: 15px;
-  
+    text-decoration: none;
   }
   
   .button:hover {background-color: #3e8e41}

@@ -1,57 +1,62 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Form from "../components/Form";
 import "../components/NavBar.css"
+import onNextFrame from "../util/Formvalildation";
+import getGenres from "../util/Genres";
+import ratingColour from "../util/Ratingcolour";
 
-function Moviepage(id){
-
-    const movieDetails = 'https://api.themoviedb.org/3/movie/'+ "663712" +'?api_key=19dedc791dc255982eaf84be8a93012a&language=en-US'
+ function Moviepage(value){
     const [movie, setMovie] = useState([]);
-    const genre = []
+    const [tagline, setTagline] = useState([]);
+    const [title, setTitle] = useState([]);
+    const [genres, setGenres] = useState([]);
+    const [releaseDate, setReleaseDate] = useState([]);
+    const id = value.id;
     
-    const loadMovie = () => {
-        axios.get(movieDetails)
-        .then(({data}) =>{
-            setMovie(data)
-            
-        })
-    }
     useEffect(() =>{
-        loadMovie()
+        const movieDetails = `https://api.themoviedb.org/3/movie/${id.slice(1)}?api_key=19dedc791dc255982eaf84be8a93012a&language=en-US`
+        async function getData(){
+            const res = await axios.get(movieDetails);
+            setMovie(res.data) 
+            setTitle(res.data.title) 
+            setGenres(res.data.genres) 
+            setTagline(res.data.tagline) 
+            setReleaseDate(res.data.release_date.substring(0,4)) 
+            
+         }
+        getData()
     },[])
 
-    const {poster_path, tagline, title ,vote_average ,overview ,genres } = movie
+    onNextFrame()
+    const {poster_path ,vote_average ,overview  } = movie
     const img = "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + poster_path
-
-    const getGenres =(()=>{
-        genres.forEach(element => {
-            genre.push(element.name)
-            console.log(genre)
-        });
-        document.getElementById('genre').innerHTML = genre
-    })
-
-    return(
+    return !genres.length ?
+        <h1 style={{textAlign: 'center'}}>Loading</h1> :(
         
         <div>
-            <div className="grid-container">
+        
+            <div className="grid-container" style={{marginTop: '70px'}}>
                 <div className="left">
-                    <img className='iii' src={img}/>
+                    <img className='poster' src={img} alt={poster_path}/>
                 </div>
-                <div className="middle">
-                    <h1>{title}</h1>
+                <div className="middle" style={{marginLeft: '15px', marginRight: '15px'}}>
+                    <h1>{title} ({releaseDate})</h1>
                     
                     <p>{tagline}</p>
-                    <div>{vote_average}</div>
+                    <div id="rating" style={{ background : ratingColour(vote_average*10),width: '160px'} }>RATING: {Math.floor(vote_average*10)}</div>
                     <h1>Overview</h1>
-                    <p>{overview}</p>
+                    <p style={{textAlign:'justify'}}>{overview}</p>
                     <h1>Genres</h1>
-                    <p id='genre'>{}</p>
+                    <p id='genre'>{getGenres(genres)}</p>
                 </div>
        
             </div>
-            
+            <div className="form-container" >        
+                <Form>{}</Form>
+            </div>
+                
         </div>
     )
 }
-
-export default Moviepage
+export default Moviepage;

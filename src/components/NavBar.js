@@ -51,7 +51,7 @@ const NavBar2=()=> {
                   className="nav-links"
                  onClick={click ? handleClick : null}
                 >
-                About <br/> &nbsp;&nbsp; the developer
+                About the <br/>&nbsp;&nbsp;developer
                 </NavLink>
               </li>
             </ul>

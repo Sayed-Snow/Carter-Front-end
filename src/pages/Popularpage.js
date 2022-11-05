@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Popularpage ()  {
 
+
   const [popular,setPopular] = useState([]);
   let page = 1;
 
@@ -31,13 +32,18 @@ function Popularpage ()  {
   };
 
   useEffect(()=> {
+
+  
     loadMovies();
     window.addEventListener('scroll', handleScroll);
   },[]);
 
 
-    return (
-      <div>
+  return !popular.length ?
+  <h1 style={{textAlign: 'center'}}>Loading</h1> :
+  (
+      
+      <div style={{marginTop: '100px'}}>
         <CardList movies={popular}/>
       </div>
     );
