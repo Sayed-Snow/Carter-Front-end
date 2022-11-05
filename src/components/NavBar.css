@@ -1,23 +1,21 @@
- 
-* {
-    margin: 0;
-    padding: 0;
-  }
+
   
 body {
     background-color: #b5fac7;
+    margin: 0;
+    padding: 0;
+
   }
   
   .pages {
-    color: #316685;
-    text-align: center;
-    font-size: calc(1.5rem + 2vw);
-    margin-top: 2%;
+    color: black;
+    margin-top: 8%;
   }
 
   .grid{
     display: grid;
     justify-items: center;
+    text-align: center;
   }
 
   @media (min-width: 960px) {
@@ -35,7 +33,8 @@ body {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
+    position: fixed !important;
+    width: 100% !important;
     top: 0;
     z-index: 20;
   }
@@ -46,7 +45,6 @@ body {
     align-items: center;
     width: 100%;
     height: 80px;
-    margin-right: 10rem;
 
   }
   
@@ -65,14 +63,17 @@ body {
     align-items: center;
     padding: 10px;
     padding-right: 30px;
-    padding-bottom: 19px;
+    position: fixed;
     padding-top: 1px;
-    height: 60px;
-    top: 0; 
-
+    height: 80px;
+    top: 0;
     cursor: pointer;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 29px;
+    float: left;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 29px;
     float: left;
   }
   
@@ -80,7 +81,7 @@ body {
     display: flex;
     list-style: none;
     text-align: center;
-
+    white-space: nowrap;
     width: auto;
     justify-content: center;
   }
@@ -97,8 +98,8 @@ body {
   }
   
   .nav-item {
-    line-height: 40px;
     margin-right: 1rem;
+    text-align: left;
   }
   
   .nav-item:after {
@@ -166,3 +167,47 @@ body {
       color: gray;
     }
   }
+
+  .poster{
+    height: 500px;
+    width: 100%;
+    float: left;
+    padding: 15px;
+    grid-area: image;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-areas: 
+      'header header header header  ' 
+      'left middle middle middle  ' 
+      'left right right right  ';
+  } 
+
+  @media (max-width: 960px) {
+    .grid-container  {
+      grid-template-areas: 
+        'header header header header' 
+        'left left left left' 
+        'middle middle middle middle' 
+        'right right right right' 
+        'footer footer footer footer';
+    }
+  }
+  .left {
+    grid-area: left;
+  }
+  
+  .right{
+    grid-area: right;
+  }
+
+  .middle {
+    grid-area: middle;
+    font-size: x-large;
+  }
+  .form-container{
+    display: flex;
+    justify-content: center;
+  }
+  

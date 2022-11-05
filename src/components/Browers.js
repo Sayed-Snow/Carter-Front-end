@@ -1,5 +1,5 @@
 import React from "react"
-import Navbar from './NavBar2'
+import Navbar from './NavBar'
 import Popularpage from "../pages/Popularpage";
 import HomePage from "../pages/Homepage";
 import Contactpage from "../pages/Contactpage";
@@ -8,6 +8,7 @@ import {
     Routes,  
     Route,  
 }   from 'react-router-dom'; 
+import Moviepage from "../pages/Moviepage";
 
 const Browers = () =>{
     return(
@@ -20,6 +21,7 @@ const Browers = () =>{
             <Route exact path="/" element={<HomePage/>} />
             <Route path="/popular" element={<Popularpage/>} />
             <Route path="/contact" element={<Contactpage/>} />
+            <Route path="/:id" element={<Moviepage id ={window.location.pathname} />} />
           </Routes>
         </div>
       </Router>
