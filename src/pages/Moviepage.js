@@ -15,7 +15,7 @@ import ratingColour from "../util/Ratingcolour";
     const id = value.id;
     
     useEffect(() =>{
-        const movieDetails = `https://api.themoviedb.org/3/movie/${id.slice(1)}?api_key=19dedc791dc255982eaf84be8a93012a&language=en-US`
+        const movieDetails = `https://api.themoviedb.org/3/movie/${id.slice(1)}?api_key={???}&language=en-US`
         async function getData(){
             const res = await axios.get(movieDetails);
             setMovie(res.data) 

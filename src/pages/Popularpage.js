@@ -10,7 +10,7 @@ function Popularpage ()  {
 
   const loadMovies = () =>{
   axios
-  .get('https://api.themoviedb.org/3/movie/popular?api_key=19dedc791dc255982eaf84be8a93012a&language=en-US&page='+ page)
+  .get('https://api.themoviedb.org/3/movie/popular?api_key={???}&language=en-US&page='+ page)
   .then(({ data }) =>{
     const arrMovie = []
     data.results.forEach(movie => {
